@@ -14,6 +14,6 @@ public class Main {
 
         Othello othello = new Othello(size);
 
-        othello.printBoard(Othello.WHITE);
+        othello.play();
     }
 }
