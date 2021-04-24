@@ -135,8 +135,10 @@ public class Othello {
         }
         if(numWhite > numBlack){
             winner = "White";
-        }else{
+        }else if(numBlack < numWhite){
             winner = "Black";
+        }else{
+            winner = "NO ONE :) \n ROUND TIE!";
         }
         System.out.println("Game Ended \n Current Score is \n");
         System.out.println("White : " + numWhite + " Black : " + numBlack + "\n");
@@ -457,7 +459,7 @@ public class Othello {
         int value = 0;
         boolean checkNext = true;
         // Find nearest same Colour
-        while (currRow > 0 && checkNext) {
+        while (currRow >= 0 && checkNext) {
             value = board[currRow][col];
             if (value == turn || value == NONE) {
                 checkNext = false;
@@ -465,7 +467,7 @@ public class Othello {
                 currRow--;
             }
         }
-        if (checkNext == false && value != NONE) {
+        if (checkNext == false && value == turn) {
             while (currRow < row) {
                 board[currRow][col] = turn;
                 currRow++;
@@ -477,7 +479,7 @@ public class Othello {
         int value = 0;
         boolean checkNext = true;
         // Find nearest same Colour
-        while (currRow < board.length - 1 && checkNext) {
+        while (currRow <= board.length - 1 && checkNext) {
             value = board[currRow][col];
             if (value == turn || value == NONE) {
                 checkNext = false;
@@ -485,7 +487,7 @@ public class Othello {
                 currRow++;
             }
         }
-        if (checkNext == false && value != NONE) {
+        if (checkNext == false && value == turn) {
             while (currRow > row) {
                 board[currRow][col] = turn;
                 currRow--;
@@ -498,7 +500,7 @@ public class Othello {
         int value = 0;
         boolean checkNext = true;
         // Find nearest same Colour
-        while (currCol > 0 && checkNext) {
+        while (currCol >= 0 && checkNext) {
             value = board[row][currCol];
             if (value == turn || value == NONE) {
                 checkNext = false;
@@ -506,7 +508,7 @@ public class Othello {
                 currCol--;
             }
         }
-        if (checkNext == false && value != NONE) {
+        if (checkNext == false && value == turn) {
             while (currCol < col) {
                 board[row][currCol] = turn;
                 currCol++;
@@ -518,7 +520,7 @@ public class Othello {
         int value = 0;
         boolean checkNext = true;
         // Find nearest same Colour
-        while (currCol < board.length - 1 && checkNext) {
+        while (currCol <= board.length - 1 && checkNext) {
             value = board[row][currCol];
             if (value == turn || value == NONE) {
                 checkNext = false;
@@ -526,7 +528,7 @@ public class Othello {
                 currCol++;
             }
         }
-        if (checkNext == false && value != NONE) {
+        if (checkNext == false && value == turn) {
             while (currCol > col) {
                 board[row][currCol] = turn;
                 currCol--;
@@ -541,7 +543,7 @@ public class Othello {
         int currCol = col - 1;
         int value = 0;
         boolean checkNext = true;
-        while ((currRow > 0 && currCol > 0) && checkNext) {
+        while ((currRow >= 0 && currCol >= 0) && checkNext) {
             value = board[currRow][currCol];
             if (value == turn || value == NONE) {
                 checkNext = false;
@@ -550,7 +552,7 @@ public class Othello {
                 currCol--;
             }
         }
-        if (checkNext == false && value != NONE) {
+        if (checkNext == false && value == turn) {
             while (currRow < row && currCol < col) {
                 board[currRow][currCol] = turn;
                 currRow++;
@@ -564,7 +566,7 @@ public class Othello {
         int currCol = col + 1;
         int value = 0;
         boolean checkNext = true;
-        while ((currRow > 0 && currCol < board.length - 1) && checkNext) {
+        while ((currRow >= 0 && currCol <= board.length - 1) && checkNext) {
             value = board[currRow][currCol];
             if (value == turn || value == NONE) {
                 checkNext = false;
@@ -588,7 +590,7 @@ public class Othello {
         int currCol = col + 1;
         int value = 0;
         boolean checkNext = true;
-        while ((currRow < board.length - 1 && currCol < board.length - 1) && checkNext) {
+        while ((currRow <= board.length - 1 && currCol <= board.length - 1) && checkNext) {
             value = board[currRow][currCol];
             if (value == turn || value == NONE) {
                 checkNext = false;
@@ -597,7 +599,7 @@ public class Othello {
                 currCol++;
             }
         }
-        if (checkNext == false && value != NONE) {
+        if (checkNext == false && value == turn) {
             while (currRow > row && currCol > col) {
                 board[currRow][currCol] = turn;
                 currRow--;
@@ -611,7 +613,7 @@ public class Othello {
         int currCol = col - 1;
         int value = 0;
         boolean checkNext = true;
-        while ((currRow < board.length - 1 && currCol > 0) && checkNext) {
+        while ((currRow <= board.length - 1 && currCol >= 0) && checkNext) {
             value = board[currRow][currCol];
             if (value == turn || value == NONE) {
                 checkNext = false;
@@ -620,7 +622,7 @@ public class Othello {
                 currCol--;
             }
         }
-        if (checkNext == false && value != NONE) {
+        if (checkNext == false && value == turn) {
             while (currRow > row && currCol < col) {
                 board[currRow][currCol] = turn;
                 currRow--;
