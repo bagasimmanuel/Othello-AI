@@ -1,5 +1,7 @@
 package com.belajar;
 
+import sun.security.util.ArrayUtil;
+
 import java.util.Scanner;
 
 public class Main {
@@ -10,10 +12,12 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Masukkan size yang diinginkan");
-        int size = sc.nextInt();
+        Othello.boardSize = sc.nextInt();
 
-        Othello othello = new Othello(size);
+        Othello othello = new Othello(Othello.boardSize);
 
         othello.play();
+
+
     }
 }
