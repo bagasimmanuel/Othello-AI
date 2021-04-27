@@ -6,9 +6,7 @@ import java.util.Collections;
 public class BoardHelper {
 
     public static ArrayList<Coordinate> getAllValidMoves(int[][] currBoard,int turn) {
-
         ArrayList<Coordinate> validMoves = new ArrayList<>();
-
         for (int i = 0; i < currBoard.length; i++) {
             for (int j = 0; j < currBoard.length; j++) {
 

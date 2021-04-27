@@ -105,6 +105,7 @@ public class Othello {
 
             if(withAI == true && turn == Player.BLACK){
                 Coordinate bestMove = ai.solve(this.board,5,Player.BLACK);
+                Coordinate bestMoveMMAB = ai.solveMMAB(this.board,5,Player.BLACK);
                 if(bestMove != null){
                     BoardHelper.makeMove(this.board,turn,bestMove.getRow(), bestMove.getCol());
                 }else{
