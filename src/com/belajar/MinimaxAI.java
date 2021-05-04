@@ -45,7 +45,7 @@ public class MinimaxAI {
 
     private int MM(int[][] currBoard,int player,int depth,boolean max){
         totalNodesExploredMM++;
-        if(depth == 0 || BoardHelper.gameEnd(currBoard)){
+        if(depth == 0 || BoardHelper.gameEnd(currBoard,player)){
             int whitePiece = 0;
             for(int i = 0; i < currBoard.length;i++){
                 for(int j = 0; j < currBoard.length;j++){
@@ -56,6 +56,7 @@ public class MinimaxAI {
             }
             return whitePiece;
         }
+
         int oplayer = (player == 1) ? 2 : 1;
 
         if(max && BoardHelper.getAllValidMoves(currBoard,player).size() == 0 || (!max && BoardHelper.getAllValidMoves(currBoard
@@ -92,7 +93,7 @@ public class MinimaxAI {
 
     private int MMAB(int[][] currBoard,int player,int depth,boolean max,int alpha,int beta){
         totalNodesExploredMMAB++;
-        if(depth == 0 || BoardHelper.gameEnd(currBoard)){
+        if(depth == 0 || BoardHelper.gameEnd(currBoard,player)){
             int whitePiece = 0;
             for(int i = 0; i < currBoard.length;i++){
                 for(int j = 0; j < currBoard.length;j++){

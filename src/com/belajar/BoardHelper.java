@@ -468,7 +468,8 @@ public class BoardHelper {
         return newBoard;
     }
 
-    public static boolean gameEnd(int[][] currBoard) {
+    public static boolean gameEnd(int[][] currBoard,int turn) {
+
 
         int availableBlack = BoardHelper.getAllValidMoves(currBoard,Player.BLACK).size();
         int availableWhite = BoardHelper.getAllValidMoves(currBoard,Player.WHITE).size();

@@ -98,7 +98,7 @@ public class Othello {
             withAI = false;
         }
 
-        while (!BoardHelper.gameEnd(board)) {
+        while (!BoardHelper.gameEnd(board,turn)) {
             player = getCurrentPlayer(turn);
             ArrayList<Coordinate> availableMoves = BoardHelper.getAllValidMoves(this.board,turn);
             printBoard(this.board,availableMoves);
@@ -108,8 +108,6 @@ public class Othello {
                 Coordinate bestMoveMMAB = ai.solveMMAB(this.board,5,Player.BLACK);
                 if(bestMove != null){
                     BoardHelper.makeMove(this.board,turn,bestMove.getRow(), bestMove.getCol());
-                }else{
-                    break;
                 }
             }else{
                 if(availableMoves.size() > 0){
